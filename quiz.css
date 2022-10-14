@@ -1,0 +1,25 @@
+hr {
+    color: black;
+}
+
+.answers {
+    display: flex;
+    margin-bottom: 5px;
+    width: 100%;
+    font-size: 18x;
+    border-radius: 5px;
+    background-color:blueviolet;
+    font-weight: bolder;
+}
+
+.answers:hover {
+    background-color: darkorchid;
+    transform: translateY(-1px);
+    cursor: pointer;
+}
+
+.answer-text {
+    padding: 10px;
+    width: 100%;
+}
+
