@@ -1,6 +1,8 @@
 const question = document.getElementById('question');
 const choices = Array.from(document.getElementsByClassName('answer-text'));
 const rightorWrong = document.getElementById('rightorWrong');
+const progress = document.getElementById('progress');
+const timeLeft = document.getElementById('countdown');
 
 let currentQuestion = {};
 acceptingAnswers = false;
@@ -65,9 +67,10 @@ startGame = () => {
 
 nextQuestion = () => {
     if(availableQuestions.length===0) {
-        return window.location.assign("/end.html")
+        return window.location.assign("endpage.html")
     }
     questionCounter++;
+    progress.innerText = questionCounter + '/' + '5';
     const questionIndex = Math.floor(Math.random() * availableQuestions.length)
     currentQuestion = availableQuestions[questionIndex];
     question.innerText = currentQuestion.question;

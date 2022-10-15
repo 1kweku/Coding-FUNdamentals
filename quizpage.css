@@ -23,3 +23,11 @@ hr {
     width: 100%;
 }
 
+.hud-main-text {
+    text-align:center;
+}
+
+#hud {
+    display:flex;
+    justify-content: space-between;
+}

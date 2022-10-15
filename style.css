@@ -12,6 +12,27 @@ h1 {
   color: darkmagenta;
 }
 
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn {
+  text-decoration: none;
+  padding: 5px;
+  height: 30px;
+  width: 80%;
+  margin-top: 5px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  color: white;
+  background-color: darkmagenta;
+}
+
 .container {
   width: 100vw;
   height: 100vh;
@@ -44,6 +65,7 @@ h1 {
 }
 
 #startBtn {
+  
   text-decoration: none;
   padding: 5px;
   width: 80%;
@@ -59,4 +81,20 @@ h1 {
   box-shadow:inset;
   transform: translate(-0.1rem);
   transition: transform 150ms
+}
+
+#saveScore {
+  font-size: 17px;
+  text-decoration: none;
+  padding: 5px;
+  height: 30px;
+  width: 80%;
+  margin-top: 5px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  color: white;
+  background-color: darkmagenta;
+  
 }

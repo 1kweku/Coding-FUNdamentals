@@ -6,11 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz</title>
     <link rel="stylesheet" href="style.css"/>
-    <link rel="stylesheet" href="quiz.css"/>
+    <link rel="stylesheet" href="quizpage.css"/>
 </head>
 <body>
     <div class = "container">
        <div id="quiz" class="justify-center flex-column">
+         <div id="hud">
+            <div id="hud-item">
+               <p class ="hud-prefix"> 
+                  Question
+               </p>
+               <h1 class ="hud-main-text" id="progress">
+                  
+               </h1>
+            </div>
+            <div id="timer">
+               <p class ="hud-prefix"> 
+                  Time left
+               </p>
+               <h1 class = "hud-main-text" id="countdown">
+                  
+               </h1>
+            </div>
+         </div>
          <h2 id="question">  </h2>
 
          <div class="answers">
@@ -37,6 +55,6 @@
          <p id="rightorWrong"> </p>
        </footer>
 
-      <script src="quiz.js"></script>
+      <script src="quizpage.js"></script>
 </body>
 </html>
