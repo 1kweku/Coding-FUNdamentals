@@ -1,7 +1,10 @@
-const username = document.getElementById('username')
+const userScore = document.getElementById('final-score');
+const userName = document.getElementById('username');
+const saveScore = document.getElementById('saveScore');
+const mostRecentScore = localStorage.getItem('mostRecentScore');
 
 username.addEventListener('keyup', () => {
-console.log(username.value);
+console.log(userNname.value);
 })
 
 //saveHighScore = e => {

@@ -2,7 +2,19 @@ const question = document.getElementById('question');
 const choices = Array.from(document.getElementsByClassName('answer-text'));
 const rightorWrong = document.getElementById('rightorWrong');
 const progress = document.getElementById('progress');
+
+
+let time = 60;
 const timeLeft = document.getElementById('countdown');
+
+var obj = setInterval(updateCountdown, 1000);
+function updateCountdown () {
+    timeLeft.innerHTML = time,
+    time--;
+    if (time == -1) {
+        clearInterval(obj);
+    }
+}
 
 let currentQuestion = {};
 acceptingAnswers = false;
@@ -39,6 +51,15 @@ let questions = [
     },
 
     {
+        question: "What does CSS stand for?",
+        choice1: " 1. Creative Style Sheet",
+        choice2: " 2. Content Selector Sheet",
+        choice3: " 3. Cascading Style Sheet",
+        choice4: " 4. Content Style Sheet",
+        answer: 3
+    },
+
+    {
         question: "What is the correct syntax for referencing an external script?",
         choice1: " 1. <script src= >",
         choice2: " 2. <script href= >",
@@ -47,31 +68,35 @@ let questions = [
         answer: 1
     },
 
-    {
+    /*{
         question: "What does CSS stand for?",
         choice1: " 1. Creative Style Sheet",
         choice2: " 2. Content Selector Sheet",
         choice3: " 3. Cascading Style Sheet",
         choice4: " 4. Content Style Sheet",
         answer: 3
-    },
+    },*/
 ]
+const availableQuestions = [ ...questions];
+const questionIndex = Math.floor(Math.random() * availableQuestions.length) - 1
 
 const numberofQuestions = 5;
 
 startGame = () => {
+    
     questionCounter = 0;
-    availableQuestions = [ ...questions];
+   // availableQuestions = [ ...questions];
     nextQuestion();
 };
 
-nextQuestion = () => {
-    if(availableQuestions.length===0) {
+nextQuestion = () => { console.log(availableQuestions);
+    let questionNumber = 5
+    if(questionNumber===0) {
         return window.location.assign("endpage.html")
     }
     questionCounter++;
     progress.innerText = questionCounter + '/' + '5';
-    const questionIndex = Math.floor(Math.random() * availableQuestions.length)
+   // const questionIndex = Math.floor(Math.random() * availableQuestions.length)
     currentQuestion = availableQuestions[questionIndex];
     question.innerText = currentQuestion.question;
 
@@ -81,6 +106,7 @@ nextQuestion = () => {
     });
 
     availableQuestions.splice(questionIndex, 1);
+    questionNumber--;
 
     acceptingAnswers = true;
 }   
@@ -92,15 +118,22 @@ choices.forEach(choice => {
         acceptingAnswers = false;
         const selectedChoice = e.target;
         const selectedAnswer = selectedChoice.dataset["number"];
-        
-        if (selectedAnswer == availableQuestions.answer) {
+
+        console.log(availableQuestions[questionIndex].answer)  
+console.log(selectedAnswer)
+
+       if (selectedAnswer.textContent == availableQuestions[questionIndex].answer) {
             rightorWrong.textContent = "Right";
             } else {
-                rightorWrong.textContent = "Wrong"
-            }
-
+              rightorWrong.textContent = "Wrong"
+            };
+       
+       if (selectedAnswer !== availableQuestions[questionIndex].answer) {
+         time -= 10 
+            };
         nextQuestion()
     })
 });
 
 startGame();
+updateCountdown();
