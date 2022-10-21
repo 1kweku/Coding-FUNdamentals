@@ -68,35 +68,36 @@ let questions = [
         answer: 1
     },
 
-    /*{
+    {
         question: "What does CSS stand for?",
         choice1: " 1. Creative Style Sheet",
         choice2: " 2. Content Selector Sheet",
         choice3: " 3. Cascading Style Sheet",
         choice4: " 4. Content Style Sheet",
         answer: 3
-    },*/
+    },
 ]
 const availableQuestions = [ ...questions];
-const questionIndex = Math.floor(Math.random() * availableQuestions.length) - 1
+let questionIndex = Math.floor(Math.random() * availableQuestions.length) 
 
 const numberofQuestions = 5;
 
 startGame = () => {
     
     questionCounter = 0;
-   // availableQuestions = [ ...questions];
     nextQuestion();
 };
 
-nextQuestion = () => { console.log(availableQuestions);
-    let questionNumber = 5
+let questionNumber = 5
+nextQuestion = () => { 
+   // console.log(availableQuestions);
     if(questionNumber===0) {
         return window.location.assign("endpage.html")
     }
+
     questionCounter++;
     progress.innerText = questionCounter + '/' + '5';
-   // const questionIndex = Math.floor(Math.random() * availableQuestions.length)
+    questionIndex = Math.floor(Math.random() * availableQuestions.length)
     currentQuestion = availableQuestions[questionIndex];
     question.innerText = currentQuestion.question;
 
@@ -105,7 +106,6 @@ nextQuestion = () => { console.log(availableQuestions);
         choice.innerText = currentQuestion['choice' + number];
     });
 
-    availableQuestions.splice(questionIndex, 1);
     questionNumber--;
 
     acceptingAnswers = true;
@@ -118,22 +118,34 @@ choices.forEach(choice => {
         acceptingAnswers = false;
         const selectedChoice = e.target;
         const selectedAnswer = selectedChoice.dataset["number"];
-
+        //questionIndex = Math.floor(Math.random() * availableQuestions.length)
         console.log(availableQuestions[questionIndex].answer)  
-console.log(selectedAnswer)
+        console.log(selectedAnswer)
 
-       if (selectedAnswer.textContent == availableQuestions[questionIndex].answer) {
+       if (selectedAnswer == availableQuestions[questionIndex].answer) {
             rightorWrong.textContent = "Right";
-            } else {
-              rightorWrong.textContent = "Wrong"
-            };
+          } else {
+            rightorWrong.textContent = "Wrong"
+          };
        
        if (selectedAnswer !== availableQuestions[questionIndex].answer) {
          time -= 10 
-            };
+           };
+        availableQuestions.splice(questionIndex, 1);
         nextQuestion()
     })
 });
 
 startGame();
 updateCountdown();
+
+
+
+
+
+
+
+
+
+
+
