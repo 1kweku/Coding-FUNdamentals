@@ -90,7 +90,6 @@ startGame = () => {
 
 let questionNumber = 5
 nextQuestion = () => { 
-   // console.log(availableQuestions);
     if(questionNumber===0) {
         return window.location.assign("endpage.html")
     }
@@ -118,7 +117,6 @@ choices.forEach(choice => {
         acceptingAnswers = false;
         const selectedChoice = e.target;
         const selectedAnswer = selectedChoice.dataset["number"];
-        //questionIndex = Math.floor(Math.random() * availableQuestions.length)
         console.log(availableQuestions[questionIndex].answer)  
         console.log(selectedAnswer)
 
@@ -126,11 +124,10 @@ choices.forEach(choice => {
             rightorWrong.textContent = "Right";
           } else {
             rightorWrong.textContent = "Wrong"
+            time -= 10 
           };
        
-       if (selectedAnswer !== availableQuestions[questionIndex].answer) {
-         time -= 10 
-           };
+      
         availableQuestions.splice(questionIndex, 1);
         nextQuestion()
     })
