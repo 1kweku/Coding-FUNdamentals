@@ -91,9 +91,10 @@ startGame = () => {
 let questionNumber = 5
 nextQuestion = () => { 
     if(questionNumber===0) {
+        localStorage.setItem('mostRecentScore' , time);
         return window.location.assign("endpage.html")
     }
-
+    
     questionCounter++;
     progress.innerText = questionCounter + '/' + '5';
     questionIndex = Math.floor(Math.random() * availableQuestions.length)

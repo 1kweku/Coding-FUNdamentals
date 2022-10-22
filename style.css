@@ -64,8 +64,11 @@ form {
   display: none;
 }
 
+.button {
+  display:inline-block;
+}
+
 #startBtn {
-  
   text-decoration: none;
   padding: 5px;
   width: 80%;
@@ -83,6 +86,19 @@ form {
   transition: transform 150ms
 }
 
+#highScores {
+  text-decoration: none;
+  padding: 5px;
+  width: 80%;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  color: white;
+  background-color: darkmagenta;
+  margin-top: 10px;
+}
+
 #saveScore {
   font-size: 17px;
   text-decoration: none;
@@ -96,5 +112,4 @@ form {
   border-radius: 10px;
   color: white;
   background-color: darkmagenta;
-  
 }
